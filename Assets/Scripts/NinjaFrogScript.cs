@@ -11,7 +11,7 @@ public class NinjaFrogScript : MonoBehaviour
     private enum MovementState { idle, running, jumping, falling }
     private float dirX;
     private BoxCollider2D coll;
-    public AttackBehavior AttackPrefab;
+    public GameObject bulletPrefab;
     public Transform LaunchOffset;
     [SerializeField] private float jumpStrength;
     [SerializeField] private float moveSpeed;
@@ -41,7 +41,7 @@ public class NinjaFrogScript : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            Instantiate(AttackPrefab, LaunchOffset.position, transform.rotation);
+            Instantiate(bulletPrefab, LaunchOffset.position, LaunchOffset.rotation);
         }
     }
 
